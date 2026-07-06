@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel Administrativo — Cardápio</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+<div class="ambient" aria-hidden="true"></div>
+
+<!-- LOGIN -->
+<div id="login-screen" class="login-screen">
+  <form id="login-form" class="login-card">
+    <div class="login-logo">🔷</div>
+    <h1>Painel Administrativo</h1>
+    <p class="muted">Digite a senha de administrador para gerenciar o cardápio.</p>
+    <input type="password" id="login-password" placeholder="Senha" required autofocus>
+    <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Entrar</button>
+    <p class="login-error" id="login-error"></p>
+    <a href="/" class="back-link">← Voltar para o site</a>
+  </form>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="dashboard hidden">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <span class="logo-fallback" style="width:36px;height:36px;border-radius:10px;">🔷</span>
+      <div>
+        <strong>Painel</strong>
+        <div class="muted small">Administração</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <button class="side-link active" data-view="produtos">📦 Produtos</button>
+      <button class="side-link" data-view="categorias">🗂️ Categorias</button>
+      <button class="side-link" data-view="config">⚙️ Configurações</button>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="/" target="_blank" class="btn btn-ghost" style="width:100%; justify-content:center; margin-bottom:10px;">Ver site</a>
+      <button id="logout-btn" class="btn btn-ghost" style="width:100%; justify-content:center;">Sair</button>
+    </div>
+  </aside>
+
+  <main class="content">
+    <!-- PRODUTOS -->
+    <section id="view-produtos" class="view">
+      <div class="view-header">
+        <div>
+          <h2>Produtos</h2>
+          <p class="muted">Adicione, edite ou remova itens do cardápio.</p>
+        </div>
+        <button class="btn btn-primary" id="new-product-btn">+ Novo produto</button>
+      </div>
+
+      <div class="toolbar">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="admin-search" placeholder="Buscar produto por nome...">
+        </div>
+        <select id="admin-cat-filter" class="select-input"></select>
+      </div>
+
+      <div id="admin-products-table" class="admin-grid"></div>
+    </section>
+
+    <!-- CATEGORIAS -->
+    <section id="view-categorias" class="view hidden">
+      <div class="view-header">
+        <div>
+          <h2>Categorias</h2>
+          <p class="muted">Organize as seções do cardápio. Use as setas para reordenar.</p>
+        </div>
+      </div>
+
+      <form id="new-category-form" class="inline-form">
+        <input type="text" id="new-category-name" placeholder="Nome da nova categoria" required>
+        <button class="btn btn-primary" type="submit">Adicionar</button>
+      </form>
+
+      <div id="categories-list" class="categories-list"></div>
+    </section>
+
+    <!-- CONFIGURAÇÕES -->
+    <section id="view-config" class="view hidden">
+      <div class="view-header">
+        <div>
+          <h2>Configurações</h2>
+          <p class="muted">Personalize a identidade e as informações do site.</p>
+        </div>
+      </div>
+
+      <form id="config-form" class="glass-panel form-grid">
+        <div class="form-col">
+          <label>Nome da empresa</label>
+          <input type="text" id="cfg-companyName">
+
+          <label>Número do WhatsApp (com DDI e DDD, apenas números)</label>
+          <input type="text" id="cfg-whatsappNumber" placeholder="Ex: 5511999999999">
+
+          <label>Horário de funcionamento</label>
+          <input type="text" id="cfg-openingHours">
+
+          <label>Cor principal</label>
+          <input type="color" id="cfg-primaryColor" style="height:44px; padding:4px;">
+        </div>
+
+        <div class="form-col">
+          <label>Logo</label>
+          <div class="upload-row">
+            <img id="cfg-logo-preview" class="preview-thumb" alt="Logo">
+            <input type="file" id="cfg-logo-file" accept="image/*">
+          </div>
+
+          <label>Imagem principal do Hero (banner)</label>
+          <div class="upload-row">
+            <img id="cfg-hero-preview" class="preview-thumb wide" alt="Banner">
+            <input type="file" id="cfg-hero-file" accept="image/*">
+          </div>
+        </div>
+
+        <div class="form-col full">
+          <label>Título do Hero</label>
+          <input type="text" id="cfg-heroTitle">
+          <label>Subtítulo do Hero</label>
+          <textarea id="cfg-heroSubtitle" rows="3"></textarea>
+        </div>
+
+        <div class="form-col full">
+          <button type="submit" class="btn btn-primary">Salvar configurações</button>
+          <span id="config-saved-msg" class="saved-msg"></span>
+        </div>
+      </form>
+
+      <form id="password-form" class="glass-panel form-grid" style="margin-top:22px;">
+        <div class="form-col full">
+          <label>Alterar senha do painel</label>
+          <input type="password" id="new-admin-password" placeholder="Nova senha (mín. 4 caracteres)">
+          <button type="submit" class="btn btn-ghost" style="margin-top:12px;">Atualizar senha</button>
+          <span id="password-saved-msg" class="saved-msg"></span>
+        </div>
+      </form>
+    </section>
+  </main>
+</div>
+
+<!-- MODAL PRODUTO (admin) -->
+<div class="modal-overlay" id="product-modal-overlay">
+  <div class="modal admin-modal" role="dialog" aria-modal="true">
+    <button class="modal-close" id="product-modal-close">×</button>
+    <form id="product-form" class="modal-content full-width">
+      <h3 class="modal-name" id="product-form-title">Novo produto</h3>
+
+      <label>Foto do produto</label>
+      <div class="upload-row">
+        <img id="product-image-preview" class="preview-thumb" alt="Prévia">
+        <input type="file" id="product-image-file" accept="image/*">
+      </div>
+
+      <label>Nome</label>
+      <input type="text" id="product-name" required>
+
+      <label>Descrição</label>
+      <textarea id="product-description" rows="3"></textarea>
+
+      <div class="two-col">
+        <div>
+          <label>Preço (R$)</label>
+          <input type="number" id="product-price" step="0.01" min="0" required>
+        </div>
+        <div>
+          <label>Categoria</label>
+          <select id="product-category"></select>
+        </div>
+      </div>
+
+      <label class="switch-row">
+        <span>Disponível para venda</span>
+        <input type="checkbox" id="product-available" checked>
+      </label>
+
+      <input type="hidden" id="product-id">
+      <input type="hidden" id="product-image-url">
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="product-delete-btn">Excluir</button>
+        <button type="submit" class="btn btn-primary btn-buy-lg">Salvar produto</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="/js/admin.js"></script>
+</body>
+</html>

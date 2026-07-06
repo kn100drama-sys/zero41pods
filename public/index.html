@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardápio Online</title>
+<meta name="description" content="Cardápio digital — veja nossos produtos e faça seu pedido diretamente pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="ambient" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="brand" id="brand"></div>
+
+  <nav class="main-nav">
+    <div class="nav-links" style="display:flex; gap:36px;">
+      <a class="nav-link" href="#inicio">Início</a>
+      <a class="nav-link" href="#produtos">Produtos</a>
+      <a class="nav-link" href="#contato">Contato</a>
+    </div>
+    <a class="btn btn-primary desktop-only" id="whatsapp-header-btn" target="_blank" rel="noopener">
+      <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.28-.14-1.67-.82-1.93-.92-.26-.1-.45-.14-.64.14-.19.28-.74.92-.9 1.1-.17.19-.33.21-.61.07-.28-.14-1.18-.44-2.24-1.39-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.5.14-.17.19-.28.28-.47.09-.19.05-.36-.02-.5-.07-.14-.64-1.56-.88-2.13-.23-.56-.47-.48-.64-.49-.17-.01-.36-.01-.55-.01-.19 0-.5.07-.76.36-.26.28-1 .98-1 2.4 0 1.41 1.03 2.78 1.17 2.97.14.19 2.02 3.09 4.9 4.33.68.3 1.22.47 1.63.6.69.22 1.31.19 1.81.11.55-.08 1.67-.68 1.91-1.34.24-.66.24-1.22.17-1.34-.07-.12-.26-.19-.54-.33z"/><path d="M12.02 2C6.5 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0012.02 22C17.55 22 22 17.52 22 12S17.55 2 12.02 2zm0 18.15c-1.65 0-3.19-.46-4.5-1.25l-.32-.19-3 .79.8-2.93-.21-.3A8.14 8.14 0 013.85 12c0-4.5 3.67-8.15 8.17-8.15 4.5 0 8.15 3.65 8.15 8.15 0 4.5-3.65 8.15-8.15 8.15z"/></svg>
+      Falar no WhatsApp
+    </a>
+    <button class="burger" id="burger-btn" aria-label="Abrir menu"><span></span></button>
+  </nav>
+</header>
+
+<div class="mobile-drawer" id="mobile-drawer">
+  <button class="close-drawer" id="close-drawer" aria-label="Fechar menu">×</button>
+  <a href="#inicio" class="drawer-link">Início</a>
+  <a href="#produtos" class="drawer-link">Produtos</a>
+  <a href="#contato" class="drawer-link">Contato</a>
+  <a class="btn btn-primary" id="whatsapp-drawer-btn" target="_blank" rel="noopener">Falar no WhatsApp</a>
+</div>
+
+<section class="hero" id="inicio">
+  <div class="hero-text">
+    <span class="eyebrow"><span class="dot"></span> Aberto agora · Peça pelo WhatsApp</span>
+    <h1 id="hero-title"></h1>
+    <p class="subtitle" id="hero-subtitle"></p>
+    <div class="hero-actions">
+      <a href="#produtos" class="btn btn-primary">Ver Produtos</a>
+      <a class="btn btn-ghost" id="whatsapp-hero-btn" target="_blank" rel="noopener">Fazer pedido</a>
+    </div>
+    <div class="hero-meta">
+      <div class="item"><strong id="meta-hours">—</strong><span>Horário de funcionamento</span></div>
+      <div class="item"><strong id="meta-count">—</strong><span>Itens no cardápio</span></div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="hero-card">
+      <img id="hero-image" src="" alt="Produto em destaque">
+      <div class="hero-chip">
+        <span style="font-size:1.3rem;">✨</span>
+        <div>
+          <span class="tag">Mais pedido</span><br>
+          <strong id="hero-chip-name">—</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="produtos">
+  <div class="section-head">
+    <div>
+      <h2>Nosso cardápio</h2>
+      <p>Escolha um item para ver os detalhes e finalizar o pedido direto no WhatsApp.</p>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="search-input" placeholder="Buscar produto...">
+    </div>
+  </div>
+
+  <div class="category-tabs" id="category-tabs"></div>
+
+  <div id="products-container"></div>
+</section>
+
+<footer class="site-footer" id="contato">
+  <div class="footer-brand">
+    <span id="footer-brand-name"></span>
+  </div>
+  <div id="footer-hours"></div>
+  <a class="btn btn-ghost" id="whatsapp-footer-btn" target="_blank" rel="noopener">Falar no WhatsApp</a>
+</footer>
+
+<!-- Modal do produto -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+    <button class="modal-close" id="modal-close" aria-label="Fechar">×</button>
+    <div class="modal-img" id="modal-img-wrap"></div>
+    <div class="modal-content">
+      <h3 class="modal-name" id="modal-name"></h3>
+      <p class="modal-desc" id="modal-desc"></p>
+      <div class="modal-price" id="modal-price"></div>
+      <div class="modal-actions">
+        <button class="btn btn-buy btn-buy-lg" id="modal-buy-btn">Comprar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

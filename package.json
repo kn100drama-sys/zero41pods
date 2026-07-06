@@ -1,0 +1,16 @@
+{
+  "name": "cardapio-online",
+  "version": "1.0.0",
+  "description": "Cardápio digital com painel administrativo, sem login/carrinho para o cliente final.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "multer": "^2.0.0",
+    "cors": "^2.8.5"
+  }
+}

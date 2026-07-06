@@ -1,0 +1,109 @@
+{
+  "config": {
+    "companyName": "ZERO41 PODS",
+    "logoUrl": "",
+    "whatsappNumber": "5511999999999",
+    "openingHours": "Ter a Dom · 18h às 23h30",
+    "primaryColor": "#1e90ff",
+    "heroTitle": "",
+    "heroSubtitle": "",
+    "heroImageUrl": "/uploads/img-ca0e7e535b.png",
+    "adminPassword": "admin123"
+  },
+  "categories": [
+    {
+      "id": "cat-1",
+      "name": "Burgers",
+      "order": 1
+    },
+    {
+      "id": "cat-2",
+      "name": "Acompanhamentos",
+      "order": 2
+    },
+    {
+      "id": "cat-3",
+      "name": "Bebidas",
+      "order": 3
+    },
+    {
+      "id": "cat-4",
+      "name": "Sobremesas",
+      "order": 4
+    }
+  ],
+  "products": [
+    {
+      "id": "prod-1",
+      "name": "Nébula Classic",
+      "description": "Blend 180g, queijo prato, alface americana, tomate, cebola caramelizada e molho especial nébula no pão brioche.",
+      "price": 32.9,
+      "categoryId": "cat-1",
+      "imageUrl": "",
+      "available": false
+    },
+    {
+      "id": "prod-2",
+      "name": "Neon Bacon",
+      "description": "Blend 180g, cheddar cremoso, bacon crocante, crispy onion e barbecue defumado no pão brioche.",
+      "price": 36.9,
+      "categoryId": "cat-1",
+      "imageUrl": "",
+      "available": true
+    },
+    {
+      "id": "prod-3",
+      "name": "Void Vegano",
+      "description": "Blend de grão-de-bico e cogumelos, queijo vegano, rúcula e maionese de ervas no pão australiano.",
+      "price": 34.9,
+      "categoryId": "cat-1",
+      "imageUrl": "",
+      "available": true
+    },
+    {
+      "id": "prod-4",
+      "name": "Batata Rústica",
+      "description": "Porção de batatas rústicas assadas com páprica defumada e alecrim, acompanha molho da casa.",
+      "price": 18.9,
+      "categoryId": "cat-2",
+      "imageUrl": "",
+      "available": true
+    },
+    {
+      "id": "prod-5",
+      "name": "Onion Rings",
+      "description": "Anéis de cebola empanados e crocantes, servidos com molho barbecue defumado.",
+      "price": 21.9,
+      "categoryId": "cat-2",
+      "imageUrl": "",
+      "available": true
+    },
+    {
+      "id": "prod-6",
+      "name": "Refrigerante Lata",
+      "description": "Lata 350ml, opções: Cola, Guaraná, Laranja ou Limão.",
+      "price": 7.9,
+      "categoryId": "cat-3",
+      "imageUrl": "",
+      "available": true
+    },
+    {
+      "id": "prod-7",
+      "name": "Suco Natural",
+      "description": "Suco natural 400ml, opções: Laranja, Limão ou Maracujá.",
+      "price": 11.9,
+      "categoryId": "cat-3",
+      "imageUrl": "",
+      "available": true
+    },
+    {
+      "id": "prod-8",
+      "name": "Brownie com Sorvete",
+      "description": "Brownie de chocolate meio amargo quente com bola de sorvete de creme e calda quente.",
+      "price": 19.9,
+      "categoryId": "cat-4",
+      "imageUrl": "",
+      "available": false
+    }
+  ]
+}
