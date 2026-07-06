@@ -50,14 +50,14 @@
         ? `<img class="logo" src="${logoUrl}" alt="${companyName}">`
         : `<div class="logo-fallback">${(companyName || 'C').charAt(0).toUpperCase()}</div>`
       }
-      <span class="brand-name">${companyName || 'Cardápio Online'}</span>
+      <span class="brand-name">${companyName || 'Tabela Online'}</span>
     `;
-    document.title = `${companyName || 'Cardápio Online'} — Cardápio Digital`;
+    document.title = `${companyName || 'Tabela Online'} — Tabela Digital`;
     $('#footer-brand-name').textContent = `© ${new Date().getFullYear()} ${companyName || ''}`;
   }
 
   function renderWhatsappLinks() {
-    const genericMsg = 'Olá! Vim pelo cardápio online e gostaria de fazer um pedido.';
+    const genericMsg = 'Olá! Vim pelo Tabela online e gostaria de fazer um pedido.';
     const link = whatsappLink(state.config.whatsappNumber, genericMsg);
     ['whatsapp-header-btn', 'whatsapp-drawer-btn', 'whatsapp-hero-btn', 'whatsapp-footer-btn'].forEach(id => {
       const el = document.getElementById(id);
@@ -250,7 +250,7 @@
       bindGlobalEvents();
     } catch (err) {
       console.error(err);
-      $('#products-container').innerHTML = `<div class="empty-state">Não foi possível carregar o cardápio. Tente novamente em instantes.</div>`;
+      $('#products-container').innerHTML = `<div class="empty-state">Não foi possível carregar o Tabela. Tente novamente em instantes.</div>`;
     }
   }
 
